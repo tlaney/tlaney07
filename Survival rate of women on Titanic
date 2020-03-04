@@ -1,0 +1,21 @@
+# sample code to find the number of female passengers
+
+fhand = open('titanic.csv')
+cnt = 0
+# skip headers line|
+headers = fhand.readline()
+for line in fhand:
+    data = line.split(',')
+    if data[3] == 'female':
+        cnt += 1
+print('Number of female passengers:',cnt)
+
+def survival_rate(file, gender):
+    headers = fhand.readline()
+    for line in fhand:
+        data = line.split(',')
+        if data[3] == 'female' and data[0] == '1':
+            cnt += 1
+            
+# print the female survival rate
+print('%0.2f' % survival_rate('titanic.csv','female'))
